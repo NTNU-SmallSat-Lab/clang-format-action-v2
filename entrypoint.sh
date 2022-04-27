@@ -18,7 +18,7 @@ git checkout $BRANCH
 echo "## Configuring git author..."
 git config --global user.email "clang-format@4hypso.no"
 git config --global user.name "Clang Format"
-git config --global --add safe.directory /github/workspace
+git config --global --add safe.directory /hypso-sw/.github/workspace
 
 # Ignore workflow files (we may not touch them)
 git update-index --assume-unchanged .github/workflows/*
