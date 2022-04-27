@@ -3,7 +3,7 @@
 set -eu
 
 REPO_FULLNAME=$(jq -r ".repository.full_name" "$GITHUB_EVENT_PATH")
-
+git config --global --add safe.directory /github/workspace
 echo "## Initializing git repo..."
 git init
 echo "### Adding git remote..."
@@ -18,7 +18,6 @@ git checkout $BRANCH
 echo "## Configuring git author..."
 git config --global user.email "clang-format@4hypso.no"
 git config --global user.name "Clang Format"
-git config --global --add safe.directory /hypso-sw/.github/workspace
 
 # Ignore workflow files (we may not touch them)
 git update-index --assume-unchanged .github/workflows/*
